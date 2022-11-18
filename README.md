@@ -1,1 +1,4 @@
 "# SocialNetwork" 
+
+- Login Register
+- AutoMapper

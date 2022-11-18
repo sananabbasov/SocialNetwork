@@ -1,8 +1,16 @@
 using System.Text;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using SocialNetwork.Business.Autofac;
+using SocialNetwork.Business.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacBusinessModule()));
 
 // Add services to the container.
 
@@ -35,6 +43,14 @@ builder.Services.AddAuthentication(x =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new MappingProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
 
 var app = builder.Build();
 
