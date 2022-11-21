@@ -23,7 +23,7 @@ public class AuthController : ControllerBase
         var result = _authService.Login(login);
         if (result.Success)
         {
-            return Ok(result.Message);
+            return Ok(new {status = 200, message = result.Message });
         }
         return BadRequest(result.Message);
     }

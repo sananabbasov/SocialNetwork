@@ -10,6 +10,10 @@ namespace SocialNetwork.Business.AutoMapper
         {
             CreateMap<RegisterDTO, User>();
             CreateMap<User, RegisterDTO>();
+
+            CreateMap<UserByEmailDTO, User>();
+            CreateMap<User, UserByEmailDTO>();
+            
         }
     }
 }
