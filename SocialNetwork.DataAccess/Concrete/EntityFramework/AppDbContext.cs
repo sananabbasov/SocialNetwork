@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Core.Entities.Concrete;
+using SocialNetwork.Entities.Concrete;
 
 namespace SocialNetwork.DataAccess.Concrete
 {
@@ -13,5 +14,7 @@ namespace SocialNetwork.DataAccess.Concrete
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<PostLike> PostLikes { get; set; }
     }
 }
