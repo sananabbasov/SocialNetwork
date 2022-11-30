@@ -1,5 +1,7 @@
 using AutoMapper;
 using SocialNetwork.Core.Entities.Concrete;
+using SocialNetwork.Entities.Concrete;
+using static SocialNetwork.Entities.DTOs.PostDTO;
 using static SocialNetwork.Entities.DTOs.UserDTO;
 
 namespace SocialNetwork.Business.AutoMapper
@@ -13,7 +15,10 @@ namespace SocialNetwork.Business.AutoMapper
 
             CreateMap<UserByEmailDTO, User>();
             CreateMap<User, UserByEmailDTO>();
-            
+
+            CreateMap<PostCreateDTO, Post>().ReverseMap();
+            CreateMap<Post, PostDeleteDTO>().ReverseMap();
+
         }
     }
 }

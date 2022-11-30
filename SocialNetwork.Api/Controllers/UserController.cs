@@ -17,7 +17,7 @@ namespace SocialNetwork.Api.Controllers
         }
 
         [Authorize]
-        [HttpGet("getuser")]
+        [HttpGet("getuser/{email}")]
         public IActionResult GetUserByEmail(string email)
         {
             return Ok(_userService.GetUserByEmail(email));

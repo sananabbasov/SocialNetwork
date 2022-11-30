@@ -28,6 +28,7 @@ namespace SocialNetwork.Api.Controllers
             var jwtSecurityToken = handler.ReadJwtToken(_bearer_token);
             var id = jwtSecurityToken.Claims.FirstOrDefault(x => x.Type == "nameid").Value;
             _postService.CreatePost(post, Guid.Parse(id));
+
             return Ok();
         }
 
