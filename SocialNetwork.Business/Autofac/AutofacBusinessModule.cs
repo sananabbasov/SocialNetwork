@@ -18,6 +18,9 @@ namespace SocialNetwork.Business.Autofac
 
             builder.RegisterType<PostDal>().As<IPostDal>();
             builder.RegisterType<PostManager>().As<IPostService>();
+
+            builder.RegisterType<PostLikeDal>().As<IPostLikeDal>();
+            builder.RegisterType<PostLikeManager>().As<IPostLikeService>();
         }
     }
 }

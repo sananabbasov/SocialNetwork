@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static SocialNetwork.Entities.DTOs.PostDTO;
 
 namespace SocialNetwork.Business.Abstract
 {
-    public interface IPostService
+    public interface IPostLikeService
     {
-        IResult CreatePost(PostCreateDTO postCreate, Guid userId);
+        IResult LikePost(Guid userId, int postId);
     }
 }

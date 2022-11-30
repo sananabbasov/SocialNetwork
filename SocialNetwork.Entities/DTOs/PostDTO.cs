@@ -10,5 +10,6 @@ namespace SocialNetwork.Entities.DTOs
     {
         public record PostCreateDTO(string Content);
         public record PostDeleteDTO(int Id);
+        public record ProfilePostListDTO(int postId,string Content, int LikeCount);
     }
 }

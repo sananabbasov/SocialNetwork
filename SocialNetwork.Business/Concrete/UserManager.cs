@@ -5,6 +5,8 @@ using SocialNetwork.Core.Helpers.Result.Abstract;
 using SocialNetwork.Core.Helpers.Result.Concrete.ErrorResults;
 using SocialNetwork.Core.Helpers.Result.Concrete.SuccessResults;
 using SocialNetwork.DataAccess.Abstract;
+using SocialNetwork.Entities.DTOs;
+using static SocialNetwork.Entities.DTOs.PostDTO;
 using static SocialNetwork.Entities.DTOs.UserDTO;
 
 namespace SocialNetwork.Business.Concrete
@@ -18,6 +20,19 @@ namespace SocialNetwork.Business.Concrete
         {
             _userDal = userDal;
             _mapper = mapper;
+        }
+
+        public IDataResult<IEnumerable<ProfilePostListDTO>> GetProfilePosts(Guid userId)
+        {
+            try
+            {
+                var result = _userDal.GetUserProfilePosts(userId);
+                return new SuccessDataResult<IEnumerable<ProfilePostListDTO>>(result);
+            }
+            catch (Exception e)
+            {
+                return new ErrorDataResult<IEnumerable<ProfilePostListDTO>>(e.Message);
+            }
         }
 
         public IDataResult<UserByEmailDTO> GetUserByEmail(string email)
@@ -37,7 +52,7 @@ namespace SocialNetwork.Business.Concrete
             }
             catch (Exception e)
             {
-                    return new ErrorDataResult<UserByEmailDTO>(e.Message);
+                return new ErrorDataResult<UserByEmailDTO>(e.Message);
             }
         }
     }

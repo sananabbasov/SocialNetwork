@@ -10,5 +10,6 @@ namespace SocialNetwork.DataAccess.Abstract
 {
     public interface IPostLikeDal : IRepositoryBase<PostLike>
     {
+        void LikePost(Guid userId, int postId);
     }
 }

@@ -26,11 +26,6 @@ namespace SocialNetwork.Business.Concrete
             _mapper = mapper;
         }
 
-        public PostCreateDTO Add(PostCreateDTO postCreate, Guid userId)
-        {
-            throw new NotImplementedException();
-        }
-
         public IResult CreatePost(PostCreateDTO postCreate, Guid userId)
         {
             try
@@ -48,5 +43,6 @@ namespace SocialNetwork.Business.Concrete
                 return new ErrorResult(e.Message);
             }
         }
+
     }
 }

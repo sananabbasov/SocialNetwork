@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SocialNetwork.Business.Abstract;
 using static SocialNetwork.Entities.DTOs.UserDTO;
